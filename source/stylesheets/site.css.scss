@@ -1,6 +1,9 @@
 @charset "utf-8";
 @import "normalize";
 
+$card-width: 320px;
+$card-height: 568px;
+
 body {
   background: #AA0000;
   text-align: center;
@@ -17,9 +20,12 @@ body {
 }
 
 .card {
-  width: 320px;
-  height: 568px;
+  width: $card-width;
+  height: $card-height;
   border: 1px solid white;
   display: inline-block;
-  margin: 0 35px;
+  margin: 0 35px 20px 35px;
+  @media only screen and (max-width: $card-width * 2) {
+    margin: 0 0 20px 0;
+  }
 }
