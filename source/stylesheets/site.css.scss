@@ -3,6 +3,7 @@
 
 $card-width: 320px;
 $card-height: 568px;
+$card-margin: 35px;
 
 body {
   background: #AA0000;
@@ -12,20 +13,44 @@ body {
 }
 
 .container {
-  position: absolute;
-  top: 5%;
-  width: 100%;
+  width: $card-width * 2 + $card-margin * 2 + 4px;  // 4px borders
+  margin: 50px auto 0 auto;
   text-align: center;
   border: 1px solid gray;
+  overflow: auto;  // clearfix
 }
 
 .card {
   width: $card-width;
   height: $card-height;
   border: 1px solid white;
+  margin-bottom: $card-margin;
   display: inline-block;
-  margin: 0 35px 20px 35px;
-  @media only screen and (max-width: $card-width * 2) {
-    margin: 0 0 20px 0;
+  float: left;
+}
+
+.front {
+  margin-right: $card-margin;
+}
+
+.back {
+  margin-left: $card-margin;
+}
+
+@media only screen and (max-width: $card-width * 2 + $card-margin * 2 + 4px) {
+  .container {
+    width: $card-width + 2px;  // 2px borders
   }
+
+  .front {
+    margin-right: 0;
+  }
+
+  .back {
+    margin-left: 0;
+  }
+}
+
+.card div {
+  border: 1px solid gray;
 }
