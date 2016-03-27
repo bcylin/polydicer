@@ -43,8 +43,12 @@ helpers QrcodeHelpers
 # Build-specific configuration
 configure :build do
   # Minify CSS on build
-  # activate :minify_css
+  activate :minify_css
 
   # Minify Javascript on build
-  # activate :minify_javascript
+  activate :minify_javascript
+
+  # middleman-gh-pages
+  activate :relative_assets
+  set :relative_links, true
 end

@@ -1,5 +1,6 @@
 require 'highline'
 require 'json'
+require "middleman-gh-pages"
 
 task default: :init
 
