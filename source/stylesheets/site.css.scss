@@ -4,9 +4,10 @@
 $card-width: 320px;
 $card-height: 568px;
 $card-margin: 35px;
+$icook-red: #AA0000;
 
 body {
-  background: #AA0000;
+  background: #EFEDE8;
   text-align: center;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1em;
@@ -16,25 +17,92 @@ body {
   width: $card-width * 2 + $card-margin * 2 + 4px;  // 4px borders
   margin: 50px auto 0 auto;
   text-align: center;
-  border: 1px solid gray;
   overflow: auto;  // clearfix
 }
 
 .card {
   width: $card-width;
   height: $card-height;
-  border: 1px solid white;
   margin-bottom: $card-margin;
+  position: relative;
   display: inline-block;
   float: left;
+  text-align: left;
 }
 
 .front {
   margin-right: $card-margin;
+  background-color: $icook-red;
+  color: white;
 }
 
 .back {
   margin-left: $card-margin;
+  background-color: white;
+}
+
+// Front
+
+.front div{
+  margin-left: 20px;
+}
+
+.front #tagline {
+  margin: 40px 0 30px 20px;
+}
+
+.front #icook {
+  margin-left: 20px;
+}
+
+.front .logo {
+  position: absolute;
+  bottom: 35px;
+  width: 200px;
+  height: 200px;
+}
+
+// Back
+
+.back .stripe {
+  height: 8px;
+  background-color: $icook-red;
+}
+
+.back .top {
+  overflow: auto;
+  margin-top: 15px;
+}
+
+.back .top #position {
+  float: left;
+  margin: 15px;
+}
+
+.back .top .icon {
+  float: right;
+  margin-right: 15px;
+  width: 75px;
+  height: 75px;
+}
+
+.back .bottom {
+  position: absolute;
+  bottom: 0;
+  padding: 15px;
+}
+
+.back .bottom .name {
+  font-size: 1.5em;
+  margin: 8px 0;
+}
+
+.back .bottom ul {
+  margin: 20px 0;
+}
+
+.back .bottom li {
+  margin: 5px 0;
 }
 
 @media only screen and (max-width: $card-width * 2 + $card-margin * 2 + 4px) {
@@ -49,8 +117,4 @@ body {
   .back {
     margin-left: 0;
   }
-}
-
-.card div {
-  border: 1px solid gray;
 }

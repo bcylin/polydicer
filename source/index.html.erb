@@ -1,10 +1,28 @@
----
-title: Welcome to Middleman
----
-
 <div class="container">
   <div class="card front">
+    <div id="tagline"><%= data.company.tagline %></div>
+    <span id="icook">iCook</span>
+    <div><%= data.company.url %></div>
+    <img src="" alt="iCook" class="logo">
   </div>
   <div class="card back">
+    <div class="stripe"></div>
+    <div class="top">
+      <span id="position"><%= data.me.position %></span>
+      <img src="https://newsroom.icook.tw/downloads/polydice_logo.svg" alt="Polydice" class="icon">
+    </div>
+    <div class="bottom">
+      <div class="name"><%= data.me.nickname %></div>
+      <div class="name"><%= data.me.fullname %></div>
+      <ul>
+        <% (data.me.info || []).each do |item| %>
+          <li><%= "#{item.icon} #{item.value}" %></li>
+        <% end %>
+      </ul>
+      <ul>
+        <li><%= data.company.name %></li>
+        <li><%= data.company.address %></li>
+      </ul>
+    </div>
   </div>
 </div>
