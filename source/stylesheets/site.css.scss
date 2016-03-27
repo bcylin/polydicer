@@ -13,6 +13,18 @@ body {
   font-size: 1em;
 }
 
+a:link {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+}
+
+a:visited {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+}
+
 .container {
   width: $card-width * 2 + $card-margin * 2 + 4px;  // 4px borders
   margin: 50px auto 0 auto;
@@ -103,6 +115,10 @@ body {
 
 .back .bottom li {
   margin: 5px 0;
+}
+
+.back .bottom .fa {
+  margin-right: 5px;
 }
 
 @media only screen and (max-width: $card-width * 2 + $card-margin * 2 + 4px) {

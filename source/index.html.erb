@@ -16,7 +16,9 @@
       <div class="name"><%= data.me.fullname %></div>
       <ul>
         <% (data.me.info || []).each do |item| %>
-          <li><%= "#{item.icon} #{item.value}" %></li>
+          <a href="<%= item.url %>" target="_blank">
+            <li><i class="fa <%= item.icon %>"></i><span><%= item.value %></span></li>
+          </a>
         <% end %>
       </ul>
       <ul>
