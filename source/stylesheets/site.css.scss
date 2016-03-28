@@ -42,87 +42,87 @@ a:visited {
   text-align: left;
 }
 
+// Front
+
 .front {
   margin-right: $card-margin;
   background-color: $icook-red;
   color: white;
   overflow: hidden;
-}
 
-.back {
-  margin-left: $card-margin;
-  background-color: white;
-}
+  div {
+    margin-left: 20px;
+  }
 
-// Front
+  #tagline {
+    margin: 40px 0 30px 20px;
+  }
 
-.front div{
-  margin-left: 20px;
-}
+  #icook {
+    margin-left: 20px;
+    width: 78px;
+    height: 26px;
+  }
 
-.front #tagline {
-  margin: 40px 0 30px 20px;
-}
-
-.front #icook {
-  margin-left: 20px;
-  width: 78px;
-  height: 26px;
-}
-
-.front .logo {
-  position: absolute;
-  bottom: 35px;
-  left: -80px;
-  width: 262px;
-  height: 196px;
+  .logo {
+    position: absolute;
+    bottom: 35px;
+    left: -80px;
+    width: 262px;
+    height: 196px;
+  }
 }
 
 // Back
 
-.back .stripe {
-  height: 8px;
-  background-color: $icook-red;
-}
+.back {
+  margin-left: $card-margin;
+  background-color: white;
 
-.back .top {
-  overflow: auto;
-  margin-top: 15px;
-}
+  .stripe {
+    height: 8px;
+    background-color: $icook-red;
+  }
 
-.back .top #position {
-  float: left;
-  margin: 15px;
-}
+  .top {
+    overflow: auto;
+    margin-top: 15px;
 
-.back .top .icon {
-  float: right;
-  margin-right: 15px;
-  width: 75px;
-  height: 75px;
-}
+    #position {
+      float: left;
+      margin: 15px;
+    }
 
-.back .bottom {
-  position: absolute;
-  bottom: 0;
-  padding: 15px;
-}
+    .icon {
+      float: right;
+      margin-right: 15px;
+      width: 75px;
+      height: 75px;
+    }
+  }
 
-.back .bottom .name {
-  font-size: 1.5em;
-  margin: 8px 0;
-}
+  .bottom {
+    position: absolute;
+    bottom: 0;
+    padding: 15px;
 
-.back .bottom ul {
-  margin: 20px 0;
-}
+    .name {
+      font-size: 1.5em;
+      margin: 8px 0;
+    }
 
-.back .bottom li {
-  margin: 5px 0;
-}
+    ul {
+      margin: 20px 0;
+    }
 
-.back .bottom .fa {
-  margin-right: 5px;
+    li {
+      margin: 5px 0;
+    }
+
+    .fa {
+      margin-right: 5px;
+    }
+  }
 }
 
 @media only screen and (max-width: $card-width * 2 + $card-margin * 2 + 4px) {
