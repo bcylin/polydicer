@@ -20,6 +20,10 @@ page '/*.txt', layout: false
 
 # Reload the browser automatically whenever files change
 configure :development do
+  path = File.expand_path "./data/me.json"
+  unless File.exist? path
+    File.open(path, "w") { |file| file.write "{}\n" }
+  end
   activate :livereload
 end
 
