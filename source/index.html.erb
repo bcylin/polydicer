@@ -1,9 +1,9 @@
 <div class="container">
   <div class="card front">
     <div id="tagline"><%= data.company.tagline %></div>
-    <a href="https://<%= data.company.url %>" target="_blank">
-      <img src="images/icook.svg" alt="iCook" id="icook">
-      <div><%= data.company.url %></div>
+    <a href="https://<%= data.company.url %>" target="_blank" id="icook">
+      <img src="images/icook.svg" alt="iCook" class="company-img">
+      <div class="icook-url"><%= data.company.url %></div>
     </a>
     <img src="images/logo-white.svg" alt="iCook" class="logo">
   </div>
@@ -11,7 +11,7 @@
     <div class="stripe"></div>
     <div class="top">
       <span id="position"><%= data.me.position %></span>
-      <img src="https://newsroom.icook.tw/downloads/polydice_logo.svg" alt="Polydice" class="icon">
+      <img src="images/logo-polydice.svg" alt="Polydice" class="icon">
     </div>
     <div class="bottom">
       <div class="name"><%= data.me.nickname %></div>
@@ -19,7 +19,9 @@
       <ul>
         <% (data.me.info || []).each do |item| %>
           <a href="<%= item.url %>" target="_blank">
-            <li><i class="fa <%= item.icon %>"></i><span><%= item.value %></span></li>
+            <li>
+              <i class="fa <%= item.icon %>"></i><span><%= item.value %></span>
+            </li>
           </a>
         <% end %>
       </ul>

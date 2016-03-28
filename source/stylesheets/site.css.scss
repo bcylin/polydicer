@@ -5,12 +5,15 @@ $card-width: 280px;
 $card-height: 568px;
 $card-margin: 35px;
 $icook-red: #AA0000;
+$icook-white: white;
+$hover-alpha: 0.6;
 
 body {
   background: #EFEDE8;
-  text-align: center;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1em;
+  letter-spacing: 0.12em;
+  text-align: center;
 }
 
 a:link {
@@ -47,21 +50,27 @@ a:visited {
 .front {
   margin-right: $card-margin;
   background-color: $icook-red;
-  color: white;
+  color: $icook-white;
   overflow: hidden;
 
   div {
     margin-left: 20px;
   }
 
-  #tagline {
-    margin: 40px 0 30px 20px;
+  #icook {
+    &:hover {
+      .company-img {
+        opacity: $hover-alpha;
+      }
+
+      .icook-url {
+        color: rgba($icook-white, $hover-alpha);
+      }
+    }
   }
 
-  #icook {
-    margin-left: 20px;
-    width: 78px;
-    height: 26px;
+  #tagline {
+    margin: 40px 0 40px 20px;
   }
 
   .logo {
@@ -71,6 +80,13 @@ a:visited {
     width: 262px;
     height: 196px;
   }
+}
+
+.company-img {
+  margin-left: 20px;
+  margin-bottom: 5px;
+  height: 26px;
+  width: 76px;
 }
 
 // Back
