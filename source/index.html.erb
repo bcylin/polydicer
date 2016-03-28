@@ -1,9 +1,11 @@
 <div class="container">
   <div class="card front">
     <div id="tagline"><%= data.company.tagline %></div>
-    <span id="icook">iCook</span>
-    <div><%= data.company.url %></div>
-    <img src="" alt="iCook" class="logo">
+    <a href="https://<%= data.company.url %>" target="_blank">
+      <img src="images/icook.svg" alt="iCook" id="icook">
+      <div><%= data.company.url %></div>
+    </a>
+    <img src="images/logo-white.svg" alt="iCook" class="logo">
   </div>
   <div class="card back">
     <div class="stripe"></div>

@@ -1,7 +1,7 @@
 @charset "utf-8";
 @import "normalize";
 
-$card-width: 320px;
+$card-width: 280px;
 $card-height: 568px;
 $card-margin: 35px;
 $icook-red: #AA0000;
@@ -46,6 +46,7 @@ a:visited {
   margin-right: $card-margin;
   background-color: $icook-red;
   color: white;
+  overflow: hidden;
 }
 
 .back {
@@ -65,13 +66,16 @@ a:visited {
 
 .front #icook {
   margin-left: 20px;
+  width: 78px;
+  height: 26px;
 }
 
 .front .logo {
   position: absolute;
   bottom: 35px;
-  width: 200px;
-  height: 200px;
+  left: -80px;
+  width: 262px;
+  height: 196px;
 }
 
 // Back
