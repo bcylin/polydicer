@@ -2,8 +2,21 @@ require 'highline'
 require 'json'
 require "middleman-gh-pages"
 
+if File.exist? "./data/me.json"
+  json = JSON.parse File.read("./data/me.json")
+  github = json["info"].select { |item| item["url"].start_with? "https://github.com/" }.first if json["info"]
+end
+ENV["REMOTE_NAME"] = github["value"] if github
+
+
 task default: :init
 
+desc "Show REMOTE_NAME"
+task :remote do
+  puts ENV["REMOTE_NAME"]
+end
+
+desc "Create me.json"
 task :init do
   puts "Update your me.json."
   puts ""
