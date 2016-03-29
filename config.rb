@@ -37,6 +37,8 @@ end
 #     "Helping"
 #   end
 # end
+require "lib/qrcode_helpers"
+helpers QrcodeHelpers
 
 # Build-specific configuration
 configure :build do
