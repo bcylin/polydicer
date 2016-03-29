@@ -1,0 +1,140 @@
+@charset "utf-8";
+@import "normalize";
+
+$card-width: 280px;
+$card-height: 568px;
+$card-margin: 35px;
+$icook-red: #AA0000;
+
+body {
+  background: #EFEDE8;
+  text-align: center;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1em;
+}
+
+a:link {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+}
+
+a:visited {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+}
+
+.container {
+  width: $card-width * 2 + $card-margin * 2 + 4px;  // 4px borders
+  margin: 50px auto 0 auto;
+  text-align: center;
+  overflow: auto;  // clearfix
+}
+
+.card {
+  width: $card-width;
+  height: $card-height;
+  margin-bottom: $card-margin;
+  position: relative;
+  display: inline-block;
+  float: left;
+  text-align: left;
+}
+
+// Front
+
+.front {
+  margin-right: $card-margin;
+  background-color: $icook-red;
+  color: white;
+  overflow: hidden;
+
+  div {
+    margin-left: 20px;
+  }
+
+  #tagline {
+    margin: 40px 0 30px 20px;
+  }
+
+  #icook {
+    margin-left: 20px;
+    width: 78px;
+    height: 26px;
+  }
+
+  .logo {
+    position: absolute;
+    bottom: 35px;
+    left: -80px;
+    width: 262px;
+    height: 196px;
+  }
+}
+
+// Back
+
+.back {
+  margin-left: $card-margin;
+  background-color: white;
+
+  .stripe {
+    height: 8px;
+    background-color: $icook-red;
+  }
+
+  .top {
+    overflow: auto;
+    margin-top: 15px;
+
+    #position {
+      float: left;
+      margin: 15px;
+    }
+
+    .icon {
+      float: right;
+      margin-right: 15px;
+      width: 75px;
+      height: 75px;
+    }
+  }
+
+  .bottom {
+    position: absolute;
+    bottom: 0;
+    padding: 15px;
+
+    .name {
+      font-size: 1.5em;
+      margin: 8px 0;
+    }
+
+    ul {
+      margin: 20px 0;
+    }
+
+    li {
+      margin: 5px 0;
+    }
+
+    .fa {
+      margin-right: 5px;
+    }
+  }
+}
+
+@media only screen and (max-width: $card-width * 2 + $card-margin * 2 + 4px) {
+  .container {
+    width: $card-width + 2px;  // 2px borders
+  }
+
+  .front {
+    margin-right: 0;
+  }
+
+  .back {
+    margin-left: 0;
+  }
+}
