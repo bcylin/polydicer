@@ -55,21 +55,30 @@ a:visited {
   color: $icook-white;
   overflow: hidden;
 
+  &:hover,
+  &:active {
+    -webkit-transition: box-shadow 0.15s ease-in;
+
+    box-shadow: 1px 1px 2px #8C8783;
+    transition: box-shadow 0.15s ease-in;
+  }
+
   div {
     margin-left: 20px;
   }
 
   #icook {
-    &:hover {
+    &:hover,
+    &:active {
       .company-img {
         opacity: $hover-alpha;
       }
 
       .icook-url {
-        -webkit-transition: color 0.15s ease-in;
+        -webkit-ransition: box-shadow .2s ease-in-out;
 
         color: rgba($icook-white, $hover-alpha);
-        transition: color 0.15s ease-in;
+        transition: box-shadow .2s ease-in-out;
       }
     }
   }
@@ -99,6 +108,14 @@ a:visited {
 .back {
   margin-left: $card-margin;
   background-color: white;
+
+  &:hover,
+  &:active {
+    -webkit-ransition: box-shadow .2s ease-in-out;
+    box-shadow: 1px 1px 2px #8C8783;
+
+    transition: box-shadow .2s ease-in-out;
+  }
 
   .stripe {
     height: 8px;
