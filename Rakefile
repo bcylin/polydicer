@@ -11,11 +11,11 @@ task :init do
   fullname  = cli.ask "Your full name: \n> "
   nickname  = cli.ask "Your nickname: \n> "
   position  = cli.ask "Your job title: \n> "
-  portfolio = cli.ask "Your portfolio: \n> "
+  portfolio = cli.ask "Your portfolio (URL to generate QRCode): \n> "
   twitter   = cli.ask "Twitter account: \n> "
   github    = cli.ask "GitHub account: \n> "
   linkedin  = cli.ask "Linkedin account: \n> "
-  email     = cli.ask "Email account: \n> "
+  email     = cli.ask "Email address: \n> "
 
   puts ""
   info = []
@@ -55,7 +55,7 @@ task :init do
     fullname: fullname.empty? ? "Polydicer" : fullname,
     nickname: nickname,
     position: position.empty? ? "Job Title" : position,
-    portfolio: portfolio.empty? ? "https://github.com/bcylin/polydicer" : portfolio,
+    portfolio: portfolio.empty? ? "https://bcylin.github.io/polydicer" : portfolio,
     info: info
   }
 

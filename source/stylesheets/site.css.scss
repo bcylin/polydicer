@@ -125,6 +125,13 @@ a:visited {
   }
 }
 
+// QRCode
+
+.qrcode {
+  display: none;
+}
+
+
 @media only screen and (max-width: $card-width * 2 + $card-margin * 2 + 4px) {
   .container {
     width: $card-width + 2px;  // 2px borders
@@ -139,9 +146,8 @@ a:visited {
   }
 
   .qrcode {
-    padding: 10px;
-    margin-left:auto;
-    margin-right:auto;
-    margin-bottom: 40px;
+    display: block;
+    width: $card-width;
+    margin: 0 auto 50px auto;
   }
 }
