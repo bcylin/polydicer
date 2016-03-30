@@ -6,10 +6,12 @@ $card-height: 568px;
 $card-margin: 35px;
 $icook-red: #AA0000;
 $icook-white: white;
+$icook-gray: #666;
 $hover-alpha: 0.6;
 
 body {
   background: #EFEDE8;
+  color: $icook-gray;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1em;
   letter-spacing: 0.12em;
@@ -111,9 +113,9 @@ a:visited {
 
     .icon {
       float: right;
-      margin-right: 15px;
-      width: 75px;
-      height: 75px;
+      margin: 6px 15px 0 0;
+      width: 40px;
+      height: 40px;
     }
   }
 
@@ -122,9 +124,13 @@ a:visited {
     bottom: 0;
     padding: 15px;
 
+    .spacing {
+      padding-bottom: 15px;
+    }
+
     .name {
       font-size: 1.5em;
-      margin: 8px 0;
+      margin-bottom: 8px;
     }
 
     ul {
@@ -132,7 +138,11 @@ a:visited {
     }
 
     li {
-      margin: 5px 0;
+      margin: 6px 0;
+
+      > span:hover {
+        color: rgba($icook-gray, $hover-alpha);
+      }
     }
 
     .fa {
