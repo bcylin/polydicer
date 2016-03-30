@@ -15,3 +15,6 @@ gem 'middleman-livereload'
 # Get commandline inputs
 gem 'highline'
 gem 'rake'
+
+# Generate QRCode
+gem 'rqrcode'
