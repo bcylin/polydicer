@@ -6,7 +6,7 @@ $card-height: 568px;
 $card-margin: 35px;
 $icook-red: #AA0000;
 $icook-white: white;
-$icook-gray: #666;
+$icook-gray: #444;
 $hover-alpha: 0.6;
 
 body {
@@ -66,7 +66,10 @@ a:visited {
       }
 
       .icook-url {
+        -webkit-transition: color 0.15s ease-in;
+
         color: rgba($icook-white, $hover-alpha);
+        transition: color 0.15s ease-in;
       }
     }
   }
@@ -141,7 +144,10 @@ a:visited {
       margin: 6px 0;
 
       > span:hover {
+        -webkit-transition: color 0.15s ease-in;
+
         color: rgba($icook-gray, $hover-alpha);
+        transition: color 0.15s ease-in;
       }
     }
 
