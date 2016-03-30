@@ -51,3 +51,16 @@ configure :build do
   activate :relative_assets
   set :relative_links, true
 end
+
+
+activate :deploy do |deploy|
+  if File.exist? "./data/me.json"
+    json = JSON.parse File.read("./data/me.json")
+    github = json["info"].select { |item| item["url"].start_with? "https://github.com/" }.first if json["info"]
+    remote = github["value"] if github
+  end
+
+  deploy.deploy_method = :git
+  deploy.build_before = true
+  deploy.remote = remote if remote
+end

@@ -11,7 +11,7 @@ gem 'tzinfo-data', platforms: [:mswin, :mingw, :jruby]
 # Middleman Gems
 gem 'middleman', '>= 4.0.0'
 gem 'middleman-livereload'
-gem 'middleman-gh-pages'
+gem 'middleman-deploy', github: "middleman-contrib/middleman-deploy", ref: "243ab38"
 gem 'middleman-minify-html'
 
 # Get commandline inputs

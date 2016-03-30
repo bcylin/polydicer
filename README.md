@@ -36,10 +36,10 @@ git remote add $USERNAME git://github.com/$USERNAME/polydicer.git
 hub fork
 ```
 
-* Build and publish the webpage to `gh-pages`:
+* Build and deploy the page to `gh-pages` of your repository:
 
 ```
-bundle exec rake publish
+bundle exec middleman deploy
 ```
 
 ## License
