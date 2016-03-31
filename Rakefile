@@ -3,6 +3,16 @@ require 'json'
 
 task default: :init
 
+desc "Show git remote name based on the github account in me.json"
+task :remote do
+  if File.exist? "./data/me.json"
+    json = JSON.parse File.read("./data/me.json")
+    github = json["info"].select { |item| item["url"].start_with? "https://github.com/" }.first if json["info"]
+    puts github["value"] if github
+  end
+end
+
+desc "Create me.json"
 task :init do
   puts "Update your me.json."
   puts ""
