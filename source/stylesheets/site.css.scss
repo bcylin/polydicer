@@ -72,11 +72,20 @@ a:visited {
     transition: box-shadow 0.15s ease-in;
   }
 
-  div {
-    margin-left: 20px;
+  #tagline {
+    margin: 40px 0 40px 20px;
+  }
+
+  .company-img {
+    margin-bottom: 5px;
+    height: 26px;
+    width: 76px;
   }
 
   #icook {
+    display: inline-block;
+    margin-left: 20px;
+
     &:hover,
     &:active {
       .company-img {
@@ -92,10 +101,6 @@ a:visited {
     }
   }
 
-  #tagline {
-    margin: 40px 0 40px 20px;
-  }
-
   .logo {
     position: absolute;
     bottom: 35px;
@@ -103,13 +108,6 @@ a:visited {
     width: 262px;
     height: 196px;
   }
-}
-
-.company-img {
-  margin-left: 20px;
-  margin-bottom: 5px;
-  height: 26px;
-  width: 76px;
 }
 
 // Back
