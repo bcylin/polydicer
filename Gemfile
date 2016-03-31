@@ -20,3 +20,6 @@ gem 'rake'
 
 # Generate QRCode
 gem 'rqrcode'
+
+# CSS-Lint
+gem 'scss-lint'
