@@ -17,16 +17,15 @@
       <img src="images/logo-polydice.svg" alt="Polydice" class="icon">
     </div>
     <div class="bottom">
-      <div class="spacing">
+      <div>
         <div class="name"><%= data.me.nickname %></div>
         <div class="name"><%= data.me.fullname %></div>
       </div>
-      <ul class="spacing">
+      <ul class="info">
         <% (data.me.info || []).each do |item| %>
           <a href="<%= item.url %>" target="_blank">
             <li>
-              <i class="fa <%= item.icon %>"></i>
-              <span><%= item.value %></span>
+              <span><i class="fa <%= item.icon %>"></i><%= item.value %></span>
             </li>
           </a>
         <% end %>

@@ -151,21 +151,28 @@ a:visited {
     bottom: 0;
     padding: 15px;
 
-    .spacing {
-      padding-bottom: 15px;
-    }
-
     .name {
       font-size: 1.5em;
       margin-bottom: 8px;
     }
 
     ul {
-      margin: 20px 0;
+      margin: 35px 0 20px 0;
     }
 
     li {
       margin: 6px 0;
+    }
+
+    .info li {
+      margin: 0
+    }
+
+    li {
+      > span {
+        padding: 4px 0;
+        display: inline-block;
+      }
 
       > span:hover {
         -webkit-transition: color 0.15s ease-in;
@@ -176,7 +183,7 @@ a:visited {
     }
 
     .fa {
-      margin-right: 5px;
+      width: 25px;
     }
   }
 }
