@@ -18,6 +18,15 @@ body {
   text-align: center;
 }
 
+.ribbon {
+  display: inherit;
+  position: fixed;
+  top: 0;
+  right: 0;
+  border: 0;
+  z-index: 10;
+}
+
 a:link {
   text-decoration: inherit;
   color: inherit;
@@ -178,6 +187,13 @@ a:visited {
 
 .qrcode {
   display: none;
+}
+
+
+@media only screen and (max-width: 790px) {
+  .ribbon {
+    display: none;
+  }
 }
 
 
