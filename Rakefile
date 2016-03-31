@@ -77,3 +77,36 @@ task :init do
     puts JSON.pretty_generate me
   end
 end
+
+
+namespace :update do
+  desc "Update names, job title, and portfolio URL in me.json"
+  task :names do
+    path = File.expand_path "./data/me.json"
+    me = JSON.parse File.read path if File.exist? path
+    me ||= {}
+
+    cli = HighLine.new
+    fullname  = cli.ask "Your full name: (#{me['fullname'] || ''})\n> "
+    nickname  = cli.ask "Your nickname: (#{me['nickname'] || ''})\n> "
+    position  = cli.ask "Your job title: (#{me['position'] || ''})\n> "
+    portfolio = cli.ask "Your portfolio URL (to generate QRCode): (#{me['portfolio'] || ''})\n> "
+
+    me["fullname"] = fullname unless fullname.empty?
+    me["nickname"] = nickname unless fullname.empty?
+    me["position"] = position unless fullname.empty?
+    me["portfolio"] = portfolio unless fullname.empty?
+
+    puts ""
+    puts JSON.pretty_generate me
+    ready = cli.ask "Looks good to update me.json? (Y/n)\n> "
+
+    puts ""
+    if ["yes", "y", ""].include? ready.downcase
+      File.open(path, "w") { |file| file.write "#{JSON.pretty_generate me}\n" }
+      puts "#{path} is updated."
+    elsif
+      puts "Cancelled."
+    end
+  end
+end
