@@ -2,6 +2,8 @@
 
 A web version of Polydice business card.
 
+![screenshot](https://raw.githubusercontent.com/bcylin/polydicer/develop/source/images/screenshot.png)
+
 ## Setup
 
 * Install required gems:
@@ -41,6 +43,17 @@ hub fork
 ```
 bundle exec middleman deploy
 ```
+
+## Contributors
+
+Special thanks to:
+
+* [@jiajhenbee](https://github.com/jiajhenbee), design of the physical card and all the CSS effects
+* [@frozenfung](https://github.com/frozenfung), code support
+
+## Contact
+
+[![Twitter](https://img.shields.io/badge/twitter-@bcylin-blue.svg?style=flat)](https://twitter.com/bcylin)
 
 ## License
 

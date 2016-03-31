@@ -5,12 +5,26 @@ $card-width: 280px;
 $card-height: 568px;
 $card-margin: 35px;
 $icook-red: #AA0000;
+$icook-white: white;
+$icook-gray: #444;
+$hover-alpha: 0.6;
 
 body {
   background: #EFEDE8;
-  text-align: center;
+  color: $icook-gray;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1em;
+  letter-spacing: 0.12em;
+  text-align: center;
+}
+
+.ribbon {
+  display: inherit;
+  position: fixed;
+  top: 0;
+  right: 0;
+  border: 0;
+  z-index: 10;
 }
 
 a:link {
@@ -47,21 +61,44 @@ a:visited {
 .front {
   margin-right: $card-margin;
   background-color: $icook-red;
-  color: white;
+  color: $icook-white;
   overflow: hidden;
 
-  div {
-    margin-left: 20px;
+  &:hover,
+  &:active {
+    -webkit-transition: box-shadow 0.15s ease-in;
+
+    box-shadow: 1px 1px 2px #8C8783;
+    transition: box-shadow 0.15s ease-in;
   }
 
   #tagline {
-    margin: 40px 0 30px 20px;
+    margin: 40px 0 40px 20px;
+  }
+
+  .company-img {
+    margin-bottom: 5px;
+    height: 26px;
+    width: 76px;
   }
 
   #icook {
+    display: inline-block;
     margin-left: 20px;
-    width: 78px;
-    height: 26px;
+
+    &:hover,
+    &:active {
+      .company-img {
+        opacity: $hover-alpha;
+      }
+
+      .icook-url {
+        -webkit-ransition: box-shadow .2s ease-in-out;
+
+        color: rgba($icook-white, $hover-alpha);
+        transition: box-shadow .2s ease-in-out;
+      }
+    }
   }
 
   .logo {
@@ -79,6 +116,14 @@ a:visited {
   margin-left: $card-margin;
   background-color: white;
 
+  &:hover,
+  &:active {
+    -webkit-ransition: box-shadow .2s ease-in-out;
+    box-shadow: 1px 1px 2px #8C8783;
+
+    transition: box-shadow .2s ease-in-out;
+  }
+
   .stripe {
     height: 8px;
     background-color: $icook-red;
@@ -95,9 +140,9 @@ a:visited {
 
     .icon {
       float: right;
-      margin-right: 15px;
-      width: 75px;
-      height: 75px;
+      margin: 6px 15px 0 0;
+      width: 40px;
+      height: 40px;
     }
   }
 
@@ -108,19 +153,42 @@ a:visited {
 
     .name {
       font-size: 1.5em;
-      margin: 8px 0;
+      margin-bottom: 8px;
+    }
+
+    .nickname {
+      font-size: 1.4em;
+      font-weight: 300;
     }
 
     ul {
-      margin: 20px 0;
+      margin: 35px 0 20px 0;
     }
 
     li {
-      margin: 5px 0;
+      margin: 6px 0;
+    }
+
+    .info li {
+      margin: 0
+    }
+
+    li {
+      > span {
+        padding: 4px 0;
+        display: inline-block;
+      }
+
+      > span:hover {
+        -webkit-transition: color 0.15s ease-in;
+
+        color: rgba($icook-gray, $hover-alpha);
+        transition: color 0.15s ease-in;
+      }
     }
 
     .fa {
-      margin-right: 5px;
+      width: 25px;
     }
   }
 }
@@ -129,6 +197,13 @@ a:visited {
 
 .qrcode {
   display: none;
+}
+
+
+@media only screen and (max-width: 790px) {
+  .ribbon {
+    display: none;
+  }
 }
 
 
@@ -147,7 +222,6 @@ a:visited {
 
   .qrcode {
     display: block;
-    width: $card-width;
     margin: 0 auto 50px auto;
   }
 }
