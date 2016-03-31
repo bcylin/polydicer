@@ -1,6 +1,7 @@
 GIT
   remote: git://github.com/frozenfung/middleman-deploy.git
-  revision: ffe3451ed049dbfe88b31ed49ac1b6ab7529bd5c
+  revision: ada315fbaf4f8a9be5b8515cca90ecdd92d6a4ae
+  ref: ada315f
   specs:
     middleman-deploy (2.0.0.pre.alpha)
       middleman-core (>= 3.2)
