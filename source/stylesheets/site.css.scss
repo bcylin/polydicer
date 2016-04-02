@@ -68,8 +68,6 @@ a:visited {
 
   &:hover,
   &:active {
-    -webkit-transition: box-shadow 0.15s ease-in;
-
     box-shadow: 1px 1px 2px $grayish-orange;
     transition: box-shadow 0.15s ease-in;
   }
@@ -95,8 +93,6 @@ a:visited {
       }
 
       .icook-url {
-        -webkit-ransition: box-shadow .2s ease-in-out;
-
         color: rgba($icook-white, $hover-alpha);
         transition: box-shadow .2s ease-in-out;
       }
@@ -120,9 +116,7 @@ a:visited {
 
   &:hover,
   &:active {
-    -webkit-ransition: box-shadow .2s ease-in-out;
     box-shadow: 1px 1px 2px $grayish-orange;
-
     transition: box-shadow .2s ease-in-out;
   }
 
@@ -182,8 +176,6 @@ a:visited {
       }
 
       > span:hover {
-        -webkit-transition: color 0.15s ease-in;
-
         color: rgba($icook-gray, $hover-alpha);
         transition: color 0.15s ease-in;
       }
