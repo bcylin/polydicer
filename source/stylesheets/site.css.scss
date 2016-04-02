@@ -21,49 +21,49 @@ body {
 }
 
 .ribbon {
+  border: 0;
   display: inherit;
   position: fixed;
-  top: 0;
   right: 0;
-  border: 0;
+  top: 0;
   z-index: 10;
 }
 
 a:link {
-  text-decoration: inherit;
   color: inherit;
   cursor: auto;
+  text-decoration: inherit;
 }
 
 a:visited {
-  text-decoration: inherit;
   color: inherit;
   cursor: auto;
+  text-decoration: inherit;
 }
 
 .container {
-  width: $card-width * 2 + $card-margin * 2 + 4px;  // 4px borders
   margin: 50px auto 0 auto;
+  overflow: auto;
   text-align: center;
-  overflow: auto;  // clearfix
+  width: $card-width * 2 + $card-margin * 2 + 4px;  // 4px borders
 }
 
 .card {
-  width: $card-width;
+  display: inline-block;
+  float: left;
   height: $card-height;
   margin-bottom: $card-margin;
   position: relative;
-  display: inline-block;
-  float: left;
   text-align: left;
+  width: $card-width;
 }
 
 // Front
 
 .front {
-  margin-right: $card-margin;
   background-color: $icook-red;
   color: $icook-white;
+  margin-right: $card-margin;
   overflow: hidden;
 
   &:hover,
@@ -77,8 +77,8 @@ a:visited {
   }
 
   .company-img {
-    margin-bottom: 5px;
     height: 26px;
+    margin-bottom: 5px;
     width: 76px;
   }
 
@@ -100,19 +100,19 @@ a:visited {
   }
 
   .logo {
-    position: absolute;
     bottom: 35px;
-    left: -80px;
-    width: 262px;
     height: 196px;
+    left: -80px;
+    position: absolute;
+    width: 262px;
   }
 }
 
 // Back
 
 .back {
-  margin-left: $card-margin;
   background-color: white;
+  margin-left: $card-margin;
 
   &:hover,
   &:active {
@@ -121,13 +121,13 @@ a:visited {
   }
 
   .stripe {
-    height: 8px;
     background-color: $icook-red;
+    height: 8px;
   }
 
   .top {
-    overflow: auto;
     margin-top: 15px;
+    overflow: auto;
 
     .position {
       float: left;
@@ -136,16 +136,16 @@ a:visited {
 
     .icon {
       float: right;
+      height: 40px;
       margin: 6px 15px 0 0;
       width: 40px;
-      height: 40px;
     }
   }
 
   .bottom {
-    position: absolute;
     bottom: 0;
     padding: 15px;
+    position: absolute;
 
     .name {
       font-size: 1.5em;
@@ -171,8 +171,8 @@ a:visited {
 
     li {
       > span {
-        padding: 4px 0;
         display: inline-block;
+        padding: 4px 0;
       }
 
       > span:hover {
