@@ -46,10 +46,10 @@ bundle exec middleman deploy
 
 ## Contributors
 
-Special thanks to:
-
 * [@jiajhenbee](https://github.com/jiajhenbee), design of the physical card and all the CSS effects
 * [@frozenfung](https://github.com/frozenfung), code support
+
+Special thanks to [@amelieyeh](https://github.com/amelieyeh) for the help with CSS troubleshooting.
 
 ## Contact
 
