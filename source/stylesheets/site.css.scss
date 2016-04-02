@@ -95,7 +95,7 @@ a:visited {
 
     .icook-url {
       color: rgba($icook-white, $hover-alpha);
-      transition: box-shadow .2s ease-in-out;
+      transition: box-shadow 0.2s ease-in-out;
     }
   }
 }
@@ -117,7 +117,7 @@ a:visited {
   &:hover,
   &:active {
     box-shadow: 1px 1px 2px $grayish-orange;
-    transition: box-shadow .2s ease-in-out;
+    transition: box-shadow 0.2s ease-in-out;
   }
 }
 
