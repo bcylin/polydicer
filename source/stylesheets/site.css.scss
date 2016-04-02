@@ -71,10 +71,15 @@ a:visited {
     box-shadow: 1px 1px 2px $grayish-orange;
     transition: box-shadow 0.15s ease-in;
   }
+}
 
-  .tagline {
-    margin: 40px 0 40px 20px;
-  }
+.tagline {
+  margin: 40px 0 40px 20px;
+}
+
+.icook {
+  display: inline-block;
+  margin-left: 20px;
 
   .company-img {
     height: 26px;
@@ -82,30 +87,25 @@ a:visited {
     width: 76px;
   }
 
-  .icook {
-    display: inline-block;
-    margin-left: 20px;
+  &:hover,
+  &:active {
+    .company-img {
+      opacity: $hover-alpha;
+    }
 
-    &:hover,
-    &:active {
-      .company-img {
-        opacity: $hover-alpha;
-      }
-
-      .icook-url {
-        color: rgba($icook-white, $hover-alpha);
-        transition: box-shadow .2s ease-in-out;
-      }
+    .icook-url {
+      color: rgba($icook-white, $hover-alpha);
+      transition: box-shadow .2s ease-in-out;
     }
   }
+}
 
-  .logo {
-    bottom: 35px;
-    height: 196px;
-    left: -80px;
-    position: absolute;
-    width: 262px;
-  }
+.logo {
+  bottom: 35px;
+  height: 196px;
+  left: -80px;
+  position: absolute;
+  width: 262px;
 }
 
 // Back
@@ -119,71 +119,69 @@ a:visited {
     box-shadow: 1px 1px 2px $grayish-orange;
     transition: box-shadow .2s ease-in-out;
   }
+}
 
-  .stripe {
-    background-color: $icook-red;
-    height: 8px;
+.stripe {
+  background-color: $icook-red;
+  height: 8px;
+}
+
+.back-top {
+  margin-top: 15px;
+  overflow: auto;
+
+  .position {
+    float: left;
+    margin: 15px;
   }
 
-  .top {
-    margin-top: 15px;
-    overflow: auto;
+  .icon {
+    float: right;
+    height: 40px;
+    margin: 6px 15px 0 0;
+    width: 40px;
+  }
+}
 
-    .position {
-      float: left;
-      margin: 15px;
+.back-bottom {
+  bottom: 0;
+  padding: 15px;
+  position: absolute;
+
+  .name {
+    font-size: 1.5em;
+    margin-bottom: 8px;
+  }
+
+  .nickname {
+    font-size: 1.4em;
+    font-weight: 300;
+  }
+
+  ul {
+    margin: 35px 0 20px 0;
+  }
+
+  li {
+    margin: 6px 0;
+
+    > span {
+      display: inline-block;
+      padding: 4px 0;
     }
 
-    .icon {
-      float: right;
-      height: 40px;
-      margin: 6px 15px 0 0;
-      width: 40px;
+    > span:hover {
+      color: rgba($icook-gray, $hover-alpha);
+      transition: color 0.15s ease-in;
     }
   }
 
-  .bottom {
-    bottom: 0;
-    padding: 15px;
-    position: absolute;
+  .info li {
+    margin: 0;
+  }
 
-    .name {
-      font-size: 1.5em;
-      margin-bottom: 8px;
-    }
-
-    .nickname {
-      font-size: 1.4em;
-      font-weight: 300;
-    }
-
-    ul {
-      margin: 35px 0 20px 0;
-    }
-
-    li {
-      margin: 6px 0;
-    }
-
-    .info li {
-      margin: 0
-    }
-
-    li {
-      > span {
-        display: inline-block;
-        padding: 4px 0;
-      }
-
-      > span:hover {
-        color: rgba($icook-gray, $hover-alpha);
-        transition: color 0.15s ease-in;
-      }
-    }
-
-    .fa {
-      width: 25px;
-    }
+  .fa {
+    width: 25px;
   }
 }
 
