@@ -4,13 +4,15 @@
 $card-width: 280px;
 $card-height: 568px;
 $card-margin: 35px;
+$grayish-orange: #8C8783;
+$icook-beige: #EFEDE8;
 $icook-red: #AA0000;
+$icook-gray: #444444;
 $icook-white: white;
-$icook-gray: #444;
 $hover-alpha: 0.6;
 
 body {
-  background: #EFEDE8;
+  background: $icook-beige;
   color: $icook-gray;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1em;
@@ -68,7 +70,7 @@ a:visited {
   &:active {
     -webkit-transition: box-shadow 0.15s ease-in;
 
-    box-shadow: 1px 1px 2px #8C8783;
+    box-shadow: 1px 1px 2px $grayish-orange;
     transition: box-shadow 0.15s ease-in;
   }
 
@@ -119,7 +121,7 @@ a:visited {
   &:hover,
   &:active {
     -webkit-ransition: box-shadow .2s ease-in-out;
-    box-shadow: 1px 1px 2px #8C8783;
+    box-shadow: 1px 1px 2px $grayish-orange;
 
     transition: box-shadow .2s ease-in-out;
   }
