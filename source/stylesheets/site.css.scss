@@ -4,13 +4,15 @@
 $card-width: 280px;
 $card-height: 568px;
 $card-margin: 35px;
+$grayish-orange: #8C8783;
+$icook-beige: #EFEDE8;
 $icook-red: #AA0000;
+$icook-gray: #444444;
 $icook-white: white;
-$icook-gray: #444;
 $hover-alpha: 0.6;
 
 body {
-  background: #EFEDE8;
+  background: $icook-beige;
   color: $icook-gray;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1em;
@@ -19,177 +21,167 @@ body {
 }
 
 .ribbon {
+  border: 0;
   display: inherit;
   position: fixed;
-  top: 0;
   right: 0;
-  border: 0;
+  top: 0;
   z-index: 10;
 }
 
 a:link {
-  text-decoration: inherit;
   color: inherit;
   cursor: auto;
+  text-decoration: inherit;
 }
 
 a:visited {
-  text-decoration: inherit;
   color: inherit;
   cursor: auto;
+  text-decoration: inherit;
 }
 
 .container {
-  width: $card-width * 2 + $card-margin * 2 + 4px;  // 4px borders
   margin: 50px auto 0 auto;
+  overflow: auto;
   text-align: center;
-  overflow: auto;  // clearfix
+  width: $card-width * 2 + $card-margin * 2 + 4px;  // 4px borders
 }
 
 .card {
-  width: $card-width;
+  display: inline-block;
+  float: left;
   height: $card-height;
   margin-bottom: $card-margin;
   position: relative;
-  display: inline-block;
-  float: left;
   text-align: left;
+  width: $card-width;
 }
 
 // Front
 
 .front {
-  margin-right: $card-margin;
   background-color: $icook-red;
   color: $icook-white;
+  margin-right: $card-margin;
   overflow: hidden;
 
   &:hover,
   &:active {
-    -webkit-transition: box-shadow 0.15s ease-in;
-
-    box-shadow: 1px 1px 2px #8C8783;
+    box-shadow: 1px 1px 2px $grayish-orange;
     transition: box-shadow 0.15s ease-in;
   }
+}
 
-  #tagline {
-    margin: 40px 0 40px 20px;
-  }
+.tagline {
+  margin: 40px 0 40px 20px;
+}
+
+.icook {
+  display: inline-block;
+  margin-left: 20px;
 
   .company-img {
-    margin-bottom: 5px;
     height: 26px;
+    margin-bottom: 5px;
     width: 76px;
   }
 
-  #icook {
-    display: inline-block;
-    margin-left: 20px;
+  &:hover,
+  &:active {
+    .company-img {
+      opacity: $hover-alpha;
+    }
 
-    &:hover,
-    &:active {
-      .company-img {
-        opacity: $hover-alpha;
-      }
-
-      .icook-url {
-        -webkit-ransition: box-shadow .2s ease-in-out;
-
-        color: rgba($icook-white, $hover-alpha);
-        transition: box-shadow .2s ease-in-out;
-      }
+    .icook-url {
+      color: rgba($icook-white, $hover-alpha);
+      transition: box-shadow 0.2s ease-in-out;
     }
   }
+}
 
-  .logo {
-    position: absolute;
-    bottom: 35px;
-    left: -80px;
-    width: 262px;
-    height: 196px;
-  }
+.logo {
+  bottom: 35px;
+  height: 196px;
+  left: -80px;
+  position: absolute;
+  width: 262px;
 }
 
 // Back
 
 .back {
-  margin-left: $card-margin;
   background-color: white;
+  margin-left: $card-margin;
 
   &:hover,
   &:active {
-    -webkit-ransition: box-shadow .2s ease-in-out;
-    box-shadow: 1px 1px 2px #8C8783;
+    box-shadow: 1px 1px 2px $grayish-orange;
+    transition: box-shadow 0.2s ease-in-out;
+  }
+}
 
-    transition: box-shadow .2s ease-in-out;
+.stripe {
+  background-color: $icook-red;
+  height: 8px;
+}
+
+.back-top {
+  margin-top: 15px;
+  overflow: auto;
+
+  .position {
+    float: left;
+    margin: 15px;
   }
 
-  .stripe {
-    height: 8px;
-    background-color: $icook-red;
+  .icon {
+    float: right;
+    height: 40px;
+    margin: 6px 15px 0 0;
+    width: 40px;
+  }
+}
+
+.back-bottom {
+  bottom: 0;
+  padding: 15px;
+  position: absolute;
+
+  .name {
+    font-size: 1.5em;
+    margin-bottom: 8px;
   }
 
-  .top {
-    overflow: auto;
-    margin-top: 15px;
+  .nickname {
+    font-size: 1.4em;
+    font-weight: 300;
+  }
 
-    #position {
-      float: left;
-      margin: 15px;
+  ul {
+    margin: 35px 0 20px 0;
+  }
+
+  li {
+    margin: 6px 0;
+
+    > span {
+      display: inline-block;
+      padding: 4px 0;
     }
 
-    .icon {
-      float: right;
-      margin: 6px 15px 0 0;
-      width: 40px;
-      height: 40px;
+    > span:hover {
+      color: rgba($icook-gray, $hover-alpha);
+      transition: color 0.15s ease-in;
     }
   }
 
-  .bottom {
-    position: absolute;
-    bottom: 0;
-    padding: 15px;
+  .info li {
+    margin: 0;
+  }
 
-    .name {
-      font-size: 1.5em;
-      margin-bottom: 8px;
-    }
-
-    .nickname {
-      font-size: 1.4em;
-      font-weight: 300;
-    }
-
-    ul {
-      margin: 35px 0 20px 0;
-    }
-
-    li {
-      margin: 6px 0;
-    }
-
-    .info li {
-      margin: 0
-    }
-
-    li {
-      > span {
-        padding: 4px 0;
-        display: inline-block;
-      }
-
-      > span:hover {
-        -webkit-transition: color 0.15s ease-in;
-
-        color: rgba($icook-gray, $hover-alpha);
-        transition: color 0.15s ease-in;
-      }
-    }
-
-    .fa {
-      width: 25px;
-    }
+  .fa {
+    width: 25px;
   }
 }
 
