@@ -15,7 +15,8 @@ class Record
   end
 
   def self.current
-    new current_record
+    return new current_record if current_record
+    new
   end
 
   def gather_names
@@ -25,9 +26,9 @@ class Record
     portfolio = cli.ask "Your portfolio URL (to generate QRCode) [#{me['portfolio'] || ''}]:\n> "
 
     me["fullname"] = fullname unless fullname.empty?
-    me["nickname"] = nickname unless fullname.empty?
-    me["position"] = position unless fullname.empty?
-    me["portfolio"] = portfolio unless fullname.empty?
+    me["nickname"] = nickname unless nickname.empty?
+    me["position"] = position unless position.empty?
+    me["portfolio"] = portfolio unless portfolio.empty?
 
     Record.new me
   end
