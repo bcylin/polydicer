@@ -12,7 +12,7 @@ task :init do
   Record.current.gather_names.gather_accounts.save
 end
 
-desc "Show git remote name based on the github account in me.json"
+desc "Show the remote name based on the github account in me.json"
 task :remote do
   if File.exist? "./data/me.json"
     json = JSON.parse File.read("./data/me.json")
@@ -31,8 +31,8 @@ namespace :update do
     Record.current.gather_names.save
   end
 
-  desc "Update social accounts in me.json"
-  task :accounts do
+  desc "Update contact info in me.json"
+  task :info do
     puts ""
     puts "Updating social accounts in me.json. Current values are displayed in square brackets."
     puts "* Leave blank to skip updating"
