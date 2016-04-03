@@ -51,16 +51,16 @@ class Record
     Record.new me
   end
 
-  def self.write(record)
+  def save
     puts ""
-    puts JSON.pretty_generate record.json
+    puts JSON.pretty_generate json
     puts ""
-    ready = record.cli.ask "Looks good to overwrite me.json? (Y/n)\n> "
+    ready = cli.ask "Looks good to overwrite me.json? (Y/n)\n> "
 
     puts ""
     if ["yes", "y", ""].include? ready.downcase
-      File.open(path, "w") { |file| file.write "#{JSON.pretty_generate record.json}\n" }
-      puts "#{path} is updated."
+      File.open(self.class.path, "w") { |file| file.write "#{JSON.pretty_generate json}\n" }
+      puts "#{self.class.path} is updated."
     elsif
       puts "Cancelled."
     end

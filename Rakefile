@@ -9,7 +9,7 @@ task :init do
   puts ""
   puts "Setting up your me.json:"
   puts ""
-  Record.write Record.current.gather_names.gather_accounts
+  Record.current.gather_names.gather_accounts.save
 end
 
 desc "Show git remote name based on the github account in me.json"
@@ -28,7 +28,7 @@ namespace :update do
     puts "Updating your names in me.json. Current values are displayed in square brackets."
     puts "* Leave blank to skip updating"
     puts ""
-    Record.write Record.current.gather_names
+    Record.current.gather_names.save
   end
 
   desc "Update social accounts in me.json"
@@ -38,6 +38,6 @@ namespace :update do
     puts "* Leave blank to skip updating"
     puts "* Input nil to remove the account"
     puts ""
-    Record.write Record.current.gather_accounts
+    Record.current.gather_accounts.save
   end
 end
