@@ -1,5 +1,5 @@
-require 'highline'
-require 'json'
+require "highline"
+require "json"
 require_relative 'lib/record_helper'
 
 task default: :init

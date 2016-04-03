@@ -1,4 +1,4 @@
-require 'Pry'
+require "Pry"
 
 class Account
   attr_reader :pattern, :icon
@@ -6,7 +6,7 @@ class Account
 
   def initialize(current_records = [])
     record = current_records.find do |item|
-      matches = item['url'].match(pattern) || {}
+      matches = item["url"].match(pattern) || {}
       not matches[:account].nil?
     end
     @value = record["value"] if record
@@ -25,11 +25,11 @@ class Account
     "#{@type} [#{@value || ''}]:\n> "
   end
 
-  def value=(newValue)
-    if newValue == "nil"
+  def value=(new_value)
+    if new_value == "nil"
       @value = nil
-    elsif not newValue.empty?
-      @value = newValue
+    elsif not new_value.empty?
+      @value = new_value
     end
   end
 end

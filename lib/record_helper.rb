@@ -1,5 +1,5 @@
-require 'highline'
-require_relative 'account_helper'
+require "highline"
+require_relative "account_helper"
 
 class Record
 
@@ -15,7 +15,7 @@ class Record
   end
 
   def self.current
-    self.new current_me
+    new current_record
   end
 
   def gather_names
@@ -61,7 +61,7 @@ class Record
     if ["yes", "y", ""].include? ready.downcase
       File.open(self.class.path, "w") { |file| file.write "#{JSON.pretty_generate json}\n" }
       puts "#{self.class.path} is updated."
-    elsif
+    else
       puts "Cancelled."
     end
   end
@@ -74,8 +74,7 @@ class Record
     File.expand_path "./data/me.json"
   end
 
-  def self.current_me
+  def self.current_record
     JSON.parse File.read path if File.exist? path
   end
-
 end
