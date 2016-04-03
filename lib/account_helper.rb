@@ -38,7 +38,7 @@ end
 class Twitter < Account
   def initialize(current_records = [])
     @type = "Twitter account"
-    @pattern = /.+twitter\.com\/(?<account>.+)(\/)?/
+    @pattern = %r{.+twitter\.com/(?<account>.+)(/)?}
     @icon = "fa-twitter"
     super current_records
   end
@@ -53,7 +53,7 @@ class Facebook < Account
   def initialize(current_records = [])
     @type = "Facebook account"
     @icon = "fa-facebook-official"
-    @pattern = /.+facebook\.com\/(?<account>.+)(\/)?/
+    @pattern = %r{.+facebook\.com/(?<account>.+)(/)?}
     super current_records
   end
 
@@ -66,7 +66,7 @@ end
 class GitHub < Account
   def initialize(current_records = [])
     @type = "GitHub account"
-    @pattern = /.+github\.com\/(?<account>.+)(\/)?/
+    @pattern = %r{.+github\.com/(?<account>.+)(/)?}
     @icon = "fa-github"
     super current_records
   end
@@ -81,7 +81,7 @@ class Dribbble < Account
   def initialize(current_records = [])
     @type = "Dribbble account"
     @icon = "fa-dribbble"
-    @pattern = /.+dribbble\.com\/(?<account>.+)(\/)?/
+    @pattern = %r{.+dribbble\.com/(?<account>.+)(/)?}
     super current_records
   end
 
@@ -95,7 +95,7 @@ class Behance < Account
   def initialize(current_records = [])
     @type = "Behance account"
     @icon = "fa-behance"
-    @pattern = /.+behance\.net\/(?<account>.+)(\/)?/
+    @pattern = %r{.+behance\.net/(?<account>.+)(/)?}
     super current_records
   end
 
@@ -108,7 +108,7 @@ end
 class Linkedin < Account
   def initialize(current_records = [])
     @type = "Linkedin account"
-    @pattern = /.+linkedin\.com\/in\/(?<account>.+)(\/)?/
+    @pattern = %r{.+linkedin\.com/in/(?<account>.+)(/)?}
     @icon = "fa-linkedin-square"
     super current_records
   end
