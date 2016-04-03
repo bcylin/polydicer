@@ -36,7 +36,10 @@ class Record
     info = me["info"]
     me["info"] = [
       Twitter,
+      Facebook,
       GitHub,
+      Dribbble,
+      Behance,
       Linkedin,
       Email
     ].map { |type|

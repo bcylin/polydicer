@@ -49,6 +49,20 @@ class Twitter < Account
 end
 
 
+class Facebook < Account
+  def initialize(current_records = [])
+    @type = "Facebook account"
+    @icon = "fa-facebook-official"
+    @pattern = /.+facebook\.com\/(?<account>.+)(\/)?/
+    super current_records
+  end
+
+  def url
+    "https://www.facebook.com/#{@value || ''}"
+  end
+end
+
+
 class GitHub < Account
   def initialize(current_records = [])
     @type = "GitHub account"
@@ -59,6 +73,34 @@ class GitHub < Account
 
   def url
     "https://github.com/#{@value || ''}"
+  end
+end
+
+
+class Dribbble < Account
+  def initialize(current_records = [])
+    @type = "Dribbble account"
+    @icon = "fa-dribbble"
+    @pattern = /.+dribbble\.com\/(?<account>.+)(\/)?/
+    super current_records
+  end
+
+  def url
+    "https://dribbble.com/#{@value || ''}"
+  end
+end
+
+
+class Behance < Account
+  def initialize(current_records = [])
+    @type = "Behance account"
+    @icon = "fa-behance"
+    @pattern = /.+behance\.net\/(?<account>.+)(\/)?/
+    super current_records
+  end
+
+  def url
+    "https://www.behance.net/#{@value || ''}"
   end
 end
 
