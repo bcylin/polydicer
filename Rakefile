@@ -124,6 +124,7 @@ task :test do
   info = me["info"]
 
   [Twitter, GitHub, Linkedin, Email].each do |type|
-    puts type.new(info).json
+    account = type.new(info)
+    puts account.question
   end
 end
