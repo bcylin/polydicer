@@ -100,31 +100,48 @@ namespace :update do
     me["position"] = position unless fullname.empty?
     me["portfolio"] = portfolio unless fullname.empty?
 
-    puts ""
-    puts JSON.pretty_generate me
-    ready = cli.ask "Looks good to update me.json? (Y/n)\n> "
+    update me, path, cli
+  end
 
+  desc "Update social accounts in me.json"
+  task :accounts do
+    path = File.expand_path "./data/me.json"
+    me = JSON.parse File.read path if File.exist? path
+    me ||= {
+      "info" => []
+    }
+    info = me["info"]
+
+    puts "Updating social accounts. Current values are displayed in square brackets."
+    puts "* Leave blank to skip updating"
+    puts "* Input nil to remove the account"
     puts ""
-    if ["yes", "y", ""].include? ready.downcase
-      File.open(path, "w") { |file| file.write "#{JSON.pretty_generate me}\n" }
-      puts "#{path} is updated."
-    elsif
-      puts "Cancelled."
-    end
+
+    cli = HighLine.new
+    me["info"] = [Twitter, GitHub, Linkedin, Email].map { |type|
+      account = type.new(info)
+      account.value = cli.ask account.question
+      account.json
+    }.reject(&:nil?)
+
+    update me, path, cli
   end
 end
 
 
-task :test do
-  path = File.expand_path "./data/me.json"
-  me = JSON.parse File.read path if File.exist? path
-  me ||= {
-    "info" => []
-  }
-  info = me["info"]
+private
 
-  [Twitter, GitHub, Linkedin, Email].each do |type|
-    account = type.new(info)
-    puts account.question
+def update(me, path, cli = HighLine.new)
+  puts ""
+  puts JSON.pretty_generate me
+  puts ""
+  ready = cli.ask "Looks good to update me.json? (Y/n)\n> "
+
+  puts ""
+  if ["yes", "y", ""].include? ready.downcase
+    File.open(path, "w") { |file| file.write "#{JSON.pretty_generate me}\n" }
+    puts "#{path} is updated."
+  elsif
+    puts "Cancelled."
   end
 end

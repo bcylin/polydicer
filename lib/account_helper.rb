@@ -1,7 +1,8 @@
 require 'Pry'
 
 class Account
-  attr_reader :pattern, :icon, :value
+  attr_reader :pattern, :icon
+  attr_accessor :value
 
   def initialize(current_records = [])
     record = current_records.find do |item|
@@ -11,8 +12,25 @@ class Account
     @value = record["value"] if record
   end
 
+  def json
+    return nil if @value.nil?
+    {
+      icon: icon,
+      value: value,
+      url: url
+    }
+  end
+
   def question
     "#{@type} [#{@value || ''}]:\n> "
+  end
+
+  def value=(newValue)
+    if newValue == "nil"
+      @value = nil
+    elsif not newValue.empty?
+      @value = newValue
+    end
   end
 end
 
@@ -24,6 +42,10 @@ class Twitter < Account
     @icon = "fa-twitter"
     super current_records
   end
+
+  def url
+    "https://twitter.com/#{@value || ''}"
+  end
 end
 
 
@@ -33,6 +55,10 @@ class GitHub < Account
     @pattern = /.+github\.com\/(?<account>.+)(\/)?/
     @icon = "fa-github"
     super current_records
+  end
+
+  def url
+    "https://github.com/#{@value || ''}"
   end
 end
 
@@ -44,6 +70,10 @@ class Linkedin < Account
     @icon = "fa-linkedin-square"
     super current_records
   end
+
+  def url
+    "https://www.linkedin.com/in/#{@value || ''}"
+  end
 end
 
 
@@ -53,5 +83,9 @@ class Email < Account
     @pattern = /(?<account>.+\@.+)/
     @icon = "fa-envelope-o"
     super current_records
+  end
+
+  def url
+    @value
   end
 end
