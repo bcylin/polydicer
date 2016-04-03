@@ -1,5 +1,6 @@
 require 'highline'
 require 'json'
+require_relative 'lib/account_helper'
 
 task default: :init
 
@@ -84,7 +85,9 @@ namespace :update do
   task :names do
     path = File.expand_path "./data/me.json"
     me = JSON.parse File.read path if File.exist? path
-    me ||= {}
+    me ||= {
+      "info" => []
+    }
 
     cli = HighLine.new
     fullname  = cli.ask "Your full name: (#{me['fullname'] || ''})\n> "
@@ -108,5 +111,19 @@ namespace :update do
     elsif
       puts "Cancelled."
     end
+  end
+end
+
+
+task :test do
+  path = File.expand_path "./data/me.json"
+  me = JSON.parse File.read path if File.exist? path
+  me ||= {
+    "info" => []
+  }
+  info = me["info"]
+
+  [Twitter, GitHub, Linkedin, Email].each do |type|
+    puts type.new(info).json
   end
 end

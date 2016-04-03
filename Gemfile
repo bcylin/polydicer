@@ -23,3 +23,6 @@ gem 'rqrcode'
 
 # CSS-Lint
 gem 'scss-lint'
+
+# Debug
+gem 'pry'
