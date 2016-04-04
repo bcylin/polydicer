@@ -60,8 +60,8 @@ class Record
 
     puts ""
     if ["yes", "y", ""].include? ready.downcase
-      File.open(self.class.path, "w") { |file| file.write "#{JSON.pretty_generate json}\n" }
-      puts "#{self.class.path} is updated."
+      File.open(self.class.gather_path, "w") { |file| file.write "#{JSON.pretty_generate json}\n" }
+      puts "#{self.class.gather_path} is updated."
     else
       puts "Cancelled."
     end
@@ -71,6 +71,9 @@ class Record
 
   attr_reader :me
 
+  def self.gather_path
+    path
+  end
   def self.path
     File.expand_path "./data/me.json"
   end
