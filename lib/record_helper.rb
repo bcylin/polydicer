@@ -2,8 +2,17 @@ require "highline"
 require_relative "account_helper"
 
 class Record
-
   attr_reader :cli, :json
+
+  SOCIAL_ACCOUNTS = [
+    Twitter,
+    Facebook,
+    GitHub,
+    Dribbble,
+    Behance,
+    Linkedin,
+    Email
+  ]
 
   def json
     @me
@@ -31,19 +40,11 @@ class Record
 
   def gather_accounts
     info = @me["info"]
-    @me["info"] = [
-      Twitter,
-      Facebook,
-      GitHub,
-      Dribbble,
-      Behance,
-      Linkedin,
-      Email
-    ].map { |type|
-      account = type.new(info)
+    @me["info"] = Record::SOCIAL_ACCOUNTS.map do |type|
+      account = type.new info
       account.username = cli.ask account.question
       account.json
-    }.reject(&:nil?)
+    end.reject(&:nil?)
 
     Record.new @me
   end
