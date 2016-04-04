@@ -3,34 +3,35 @@ require_relative "account_helper"
 
 class Record
 
-  attr_reader :json, :cli
+  attr_reader :cli, :json
 
   def json
     @me
   end
 
-  def initialize(json = { "info" => [] }, cli = HighLine.new)
+  def initialize(json, cli = HighLine.new)
+    json ||= { "info" => [] }
     @me = json.clone
     @cli = cli
   end
 
   def gather_names
-    fullname  = cli.ask "Your full name [#{me['fullname'] || ''}]:\n> "
-    nickname  = cli.ask "Your nickname [#{me['nickname'] || ''}]:\n> "
-    position  = cli.ask "Your job title [#{me['position'] || ''}]:\n> "
-    portfolio = cli.ask "Your portfolio URL (to generate QRCode) [#{me['portfolio'] || ''}]:\n> "
+    fullname  = cli.ask "Your full name [#{@me['fullname'] || ''}]:\n> "
+    nickname  = cli.ask "Your nickname [#{@me['nickname'] || ''}]:\n> "
+    position  = cli.ask "Your job title [#{@me['position'] || ''}]:\n> "
+    portfolio = cli.ask "Your portfolio URL (to generate QRCode) [#{@me['portfolio'] || ''}]:\n> "
 
-    me["fullname"] = fullname unless fullname.empty?
-    me["nickname"] = nickname unless nickname.empty?
-    me["position"] = position unless position.empty?
-    me["portfolio"] = portfolio unless portfolio.empty?
+    @me["fullname"] = fullname unless fullname.empty?
+    @me["nickname"] = nickname unless nickname.empty?
+    @me["position"] = position unless position.empty?
+    @me["portfolio"] = portfolio unless portfolio.empty?
 
-    Record.new me
+    Record.new @me
   end
 
   def gather_accounts
-    info = me["info"]
-    me["info"] = [
+    info = @me["info"]
+    @me["info"] = [
       Twitter,
       Facebook,
       GitHub,
@@ -44,7 +45,7 @@ class Record
       account.json
     }.reject(&:nil?)
 
-    Record.new me
+    Record.new @me
   end
 
   def save
@@ -62,8 +63,6 @@ class Record
     end
   end
 
-  attr_reader :me
-
   # class methods
 
   def self.gather_path
@@ -71,8 +70,7 @@ class Record
   end
 
   def self.current
-    return new current_record if current_record
-    new
+    new current_record
   end
 
   def self.path
