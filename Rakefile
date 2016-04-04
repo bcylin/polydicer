@@ -1,79 +1,43 @@
-require 'highline'
-require 'json'
+require "highline"
+require "json"
+require_relative 'lib/record_helper'
 
 task default: :init
 
-desc "Show git remote name based on the github account in me.json"
+desc "Create me.json"
+task :init do
+  puts ""
+  puts "Setting up your me.json:"
+  puts ""
+  Record.current.gather_names.gather_accounts.save
+end
+
+desc "Show the remote name based on the github account in me.json"
 task :remote do
   if File.exist? "./data/me.json"
     json = JSON.parse File.read("./data/me.json")
-    github = json["info"].select { |item| item["url"].start_with? "https://github.com/" }.first if json["info"]
+    github = json["info"].find { |item| item["url"].start_with? "https://github.com/" } if json["info"]
     puts github["value"] if github
   end
 end
 
-desc "Create me.json"
-task :init do
-  puts "Update your me.json."
-  puts ""
-
-  cli = HighLine.new
-  fullname  = cli.ask "Your full name: \n> "
-  nickname  = cli.ask "Your nickname: \n> "
-  position  = cli.ask "Your job title: \n> "
-  portfolio = cli.ask "Your portfolio (URL to generate QRCode): \n> "
-  twitter   = cli.ask "Twitter account: \n> "
-  github    = cli.ask "GitHub account: \n> "
-  linkedin  = cli.ask "Linkedin account: \n> "
-  email     = cli.ask "Email address: \n> "
-
-  puts ""
-  info = []
-
-  unless twitter.empty?
-    info.push({
-      icon: "fa-twitter",
-      value: twitter,
-      url: "https://twitter.com/#{twitter}"
-    })
-  end
-
-  unless github.empty?
-    info.push({
-      icon: "fa-github",
-      value: github,
-      url: "https://github.com/#{github}"
-    })
-  end
-
-  unless linkedin.empty?
-    info.push({
-      icon: "fa-linkedin-square",
-      value: "linkedin.com/in/#{linkedin}",
-      url: "https://www.linkedin.com/in/#{linkedin}"
-    })
-  end
-
-  contact = email.empty? ? "me@polydice.com" : email
-  info.push({
-    icon: "fa-envelope-o",
-    value: contact,
-    url: "mailto:#{contact}"
-  })
-
-  me = {
-    fullname: fullname.empty? ? "Polydicer" : fullname,
-    nickname: nickname,
-    position: position.empty? ? "Job Title" : position,
-    portfolio: portfolio.empty? ? "https://bcylin.github.io/polydicer" : portfolio,
-    info: info
-  }
-
-  path = File.expand_path "./data/me.json"
-  File.open(path, "w") do |file|
-    file.write "#{JSON.pretty_generate me}\n"
-    puts "#{path} is updated."
+namespace :update do
+  desc "Update names, job title, and portfolio URL in me.json"
+  task :names do
     puts ""
-    puts JSON.pretty_generate me
+    puts "Updating your names in me.json. Current values are displayed in square brackets."
+    puts "* Leave blank to skip updating"
+    puts ""
+    Record.current.gather_names.save
+  end
+
+  desc "Update contact info in me.json"
+  task :info do
+    puts ""
+    puts "Updating social accounts in me.json. Current values are displayed in square brackets."
+    puts "* Leave blank to skip updating"
+    puts "* Input nil to remove the account"
+    puts ""
+    Record.current.gather_accounts.save
   end
 end
