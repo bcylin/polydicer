@@ -14,11 +14,6 @@ class Record
     @cli = cli
   end
 
-  def self.current
-    return new current_record if current_record
-    new
-  end
-
   def gather_names
     fullname  = cli.ask "Your full name [#{me['fullname'] || ''}]:\n> "
     nickname  = cli.ask "Your nickname [#{me['nickname'] || ''}]:\n> "
@@ -67,13 +62,19 @@ class Record
     end
   end
 
-  private
-
   attr_reader :me
+
+  # class methods
 
   def self.gather_path
     path
   end
+
+  def self.current
+    return new current_record if current_record
+    new
+  end
+
   def self.path
     File.expand_path "./data/me.json"
   end
