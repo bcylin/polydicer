@@ -41,7 +41,7 @@ class Record
       Email
     ].map { |type|
       account = type.new(info)
-      account.value = cli.ask account.question
+      account.username = cli.ask account.question
       account.json
     }.reject(&:nil?)
 

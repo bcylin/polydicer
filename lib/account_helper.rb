@@ -2,40 +2,39 @@ require "Pry"
 
 class Account
   attr_reader :pattern, :icon
-  attr_accessor :value
+  attr_accessor :username
 
   def initialize(current_records = [])
     record = current_records.find do |item|
       matches = item["url"].match(pattern) || {}
       not matches[:account].nil?
     end
-    @value = record["value"] if record
+    @username = record["value"] if record
   end
 
   def json
-    return nil if @value.nil?
+    return nil if @username.nil?
     {
       icon: icon,
-      value: value,
+      value: username,
       url: url
     }
   end
 
   def question
-    "#{@type} [#{@value || ''}]:\n> "
+    "#{@type} [#{@username || ''}]:\n> "
   end
 
-  def value=(new_value)
+  def username=(new_value)
     if new_value == "nil"
-      @value = nil
+      @username = nil
     elsif not new_value.empty?
-      @value = new_value
+      @username = new_value
     end
   end
 
   def url
-    value = @value || ''
-    "#{@url}#{value}"
+    "#{@url}#{@username || ''}"
   end
 end
 
@@ -92,7 +91,7 @@ end
 class Linkedin < Account
   def initialize(current_records = [])
     @type = "Linkedin account"
-    @pattern = %r{.+linkedin\.com/in/(?<account>.+)(/)?}
+    @pattern = %r{.+linkedin\.com/\w+/(?<account>.+)(/)?}
     @icon = "fa-linkedin-square"
     @url = "https://www.linkedin.com/in/"
     super current_records
