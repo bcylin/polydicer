@@ -25,7 +25,6 @@ class Record
   end
 
   def gather_names
-    binding.pry
     fullname  = cli.ask "Your full name [#{@me['fullname'] || ''}]:\n> "
     nickname  = cli.ask "Your nickname [#{@me['nickname'] || ''}]:\n> "
     position  = cli.ask "Your job title [#{@me['position'] || ''}]:\n> "
