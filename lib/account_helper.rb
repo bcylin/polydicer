@@ -34,7 +34,6 @@ class Account
   end
 end
 
-
 class Twitter < Account
   def initialize(current_records = [])
     @type = "Twitter account"
@@ -47,7 +46,6 @@ class Twitter < Account
     "https://twitter.com/#{@value || ''}"
   end
 end
-
 
 class Facebook < Account
   def initialize(current_records = [])
@@ -62,7 +60,6 @@ class Facebook < Account
   end
 end
 
-
 class GitHub < Account
   def initialize(current_records = [])
     @type = "GitHub account"
@@ -75,7 +72,6 @@ class GitHub < Account
     "https://github.com/#{@value || ''}"
   end
 end
-
 
 class Dribbble < Account
   def initialize(current_records = [])
@@ -90,7 +86,6 @@ class Dribbble < Account
   end
 end
 
-
 class Behance < Account
   def initialize(current_records = [])
     @type = "Behance account"
@@ -104,7 +99,6 @@ class Behance < Account
   end
 end
 
-
 class Linkedin < Account
   def initialize(current_records = [])
     @type = "Linkedin account"
@@ -117,7 +111,6 @@ class Linkedin < Account
     "https://www.linkedin.com/in/#{@value || ''}"
   end
 end
-
 
 class Email < Account
   def initialize(current_records = [])

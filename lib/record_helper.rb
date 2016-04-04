@@ -78,4 +78,6 @@ class Record
   def self.current_record
     JSON.parse File.read path if File.exist? path
   end
+
+  private_class_method :path, :current_record
 end
