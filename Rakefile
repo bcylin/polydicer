@@ -16,7 +16,7 @@ desc "Show the remote name based on the github account in me.json"
 task :remote do
   if File.exist? "./data/me.json"
     json = JSON.parse File.read("./data/me.json")
-    github = json["info"].select { |item| item["url"].start_with? "https://github.com/" }.first if json["info"]
+    github = json["info"].find { |item| item["url"].start_with? "https://github.com/" } if json["info"]
     puts github["value"] if github
   end
 end
