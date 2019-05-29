@@ -65,12 +65,7 @@ a:visited {
   color: $icook-white;
   margin-right: $card-margin;
   overflow: hidden;
-
-  &:hover,
-  &:active {
-    box-shadow: 1px 1px 2px $grayish-orange;
-    transition: box-shadow 0.15s ease-in;
-  }
+  box-shadow: 0px 0px 5px $grayish-orange;
 }
 
 .tagline {
@@ -113,12 +108,7 @@ a:visited {
 .back {
   background-color: white;
   margin-left: $card-margin;
-
-  &:hover,
-  &:active {
-    box-shadow: 1px 1px 2px $grayish-orange;
-    transition: box-shadow 0.2s ease-in-out;
-  }
+  box-shadow: 0px 0px 5px $grayish-orange;
 }
 
 .stripe {
@@ -171,7 +161,7 @@ a:visited {
     }
 
     > span:hover {
-      color: rgba($icook-gray, $hover-alpha);
+      color: rgba(black, $hover-alpha);
       transition: color 0.15s ease-in;
     }
   }
@@ -188,6 +178,10 @@ a:visited {
 // QRCode
 
 .qrcode {
+  display: none;
+}
+
+.url {
   display: none;
 }
 
@@ -215,5 +209,11 @@ a:visited {
   .qrcode {
     display: block;
     margin: 0 auto 50px auto;
+  }
+
+  .url {
+    display: block;
+    margin: 25px auto 0 auto;
+    color: $icook-gray;
   }
 }

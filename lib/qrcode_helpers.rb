@@ -5,9 +5,9 @@ module QrcodeHelpers
     qrcode = RQRCode::QRCode.new(url)
     qrcode.as_svg(
       offset: 0,
-      color: '000',
+      color: '555',
       shape_rendering: 'crispEdges',
-      module_size: 8
+      module_size: 6
     )
   end
 end
